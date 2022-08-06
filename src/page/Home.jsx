@@ -45,6 +45,12 @@ const Home = () => {
     getMovies();
   }, []);
 
+  if (movies === false) {
+    document.querySelector(
+      ".movies__container"
+    ).innerHTML = `Sorry, there were no results`;
+  }
+
   return (
     <>
       <div className="home">
@@ -73,46 +79,50 @@ const Home = () => {
           </form>
         </div>
         <div className="movies__container">
-          {loading
-            ? new Array(6).fill(0).map((response) => (
-                <div className="movie">
+          {loading && !movies ? (
+            new Array(6).fill(0).map((response) => (
+              <div className="movie">
+                <img
+                  src="https://www.colorhexa.com/808080.png"
+                  alt=""
+                  className="movie__poster--skeleton"
+                />
+                <img
+                  src="https://www.colorhexa.com/808080.png"
+                  className="movie__Title--skeleton"
+                ></img>
+                <img
+                  src="https://www.colorhexa.com/808080.png"
+                  className="movie__Year--skeleton"
+                ></img>
+                <img
+                  src="https://www.colorhexa.com/808080.png"
+                  className="movie__Type--skeleton"
+                ></img>
+              </div>
+            ))
+          ) : movies ? (
+            movies
+              .map((response) => (
+                <div
+                  className="movie"
+                  onClick={() => navigate(`${response.imdbID}`)}
+                  key={response.imdbID}
+                >
                   <img
-                    src="https://www.colorhexa.com/808080.png"
+                    src={`${response.Poster}`}
                     alt=""
-                    className="movie__poster--skeleton"
+                    className="movie__poster"
                   />
-                  <img
-                    src="https://www.colorhexa.com/808080.png"
-                    className="movie__Title--skeleton"
-                  ></img>
-                  <img
-                    src="https://www.colorhexa.com/808080.png"
-                    className="movie__Year--skeleton"
-                  ></img>
-                  <img
-                    src="https://www.colorhexa.com/808080.png"
-                    className="movie__Type--skeleton"
-                  ></img>
+                  <h2 className="movie__Title">{response.Title}</h2>
+                  <h4 className="movie__Year">{response.Year}</h4>
+                  <p className="movie__Type">{response.Type}</p>
                 </div>
               ))
-            : movies
-                .map((response) => (
-                  <div
-                    className="movie"
-                    onClick={() => navigate(`${response.imdbID}`)}
-                    key={response.imdbID}
-                  >
-                    <img
-                      src={`${response.Poster}`}
-                      alt=""
-                      className="movie__poster"
-                    />
-                    <h2 className="movie__Title">{response.Title}</h2>
-                    <h4 className="movie__Year">{response.Year}</h4>
-                    <p className="movie__Type">{response.Type}</p>
-                  </div>
-                ))
-                .slice(0, 6)}
+              .slice(0, 6)
+          ) : (
+            <h1 className="sorry-message">Sorry, no results...</h1>
+          )}
         </div>
       </div>
     </>
