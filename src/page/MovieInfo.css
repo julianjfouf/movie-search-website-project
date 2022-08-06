@@ -1,0 +1,116 @@
+.movieInfo {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movieInfo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.15) 0px 2px 16px 0px;
+}
+
+.imdb-logo {
+    max-height: 20px;
+    margin-top: 4px;
+}
+
+.backButton {
+  color: whitesmoke !important;
+  transform: translateY(-300px);
+  font-weight: 900 !important;
+  font-size: 18px !important;
+}
+
+.backButton > .MuiSvgIcon-root {
+  margin: 2px;
+}
+
+.movieInfo__posterWrapper {
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.movieInfo__poster {
+  border-radius: 16px;
+  margin: 24px;
+}
+
+.movieInfo__poster--skeleton {
+    height: 400px;
+    width: 300px;
+}
+
+.movieInfo__info {
+  color: whitesmoke;
+  margin: 24px;
+}
+
+.movieInfo__title {
+  font-weight: 900;
+  max-width: 480px;
+}
+
+.movieInfo__Title--skeleton {
+    width: 240px;
+    height: 43.2px;
+}
+
+.movieInfo__year {
+  max-width: 480px;
+}
+
+.movieInfo__Year--skeleton {
+    margin-top: 4px;
+    width: 120px;
+    height: 24.8px;
+}
+
+.movieInfo__genre {
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.movieInfo__Type--skeleton {
+    width: 140px;
+    height: 32px;
+}
+
+.movieInfo__length {
+  max-width: 480px;
+}
+
+.movieInfo__Length--skeleton {
+    width: 100px;
+    height: 21.6px;
+}
+
+.movieInfo__director {
+  max-width: 480px;
+}
+
+.movieInfo__Director--skeleton {
+    width: 60px;
+    height: 17.6px;
+}
+
+.movieInfo__cast {
+  max-width: 480px;
+}
+
+.movieInfo__Cast--skeleton {
+    width: 80px;
+    height: 17.6px;
+}
+
+.movieInfo__summary {
+  max-width: 480px;
+}
+
+.movieInfo__Summary--skeleton {
+    width: 480px;
+    height: 100px;
+}
